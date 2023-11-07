@@ -1,0 +1,591 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 10 Jun 2023, 1:09:20 pm
+    Author     : nuha
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --main-color: #8e44ad;
+    --red: #e74c3c;
+    --orange: #f39c12;
+    --white: #fff;
+    --black: #2c3e50;
+    --light-color: #888;
+    --light-bg: #eee;
+    --border: .1rem solid rgba(0, 0, 0, 0.2);
+}
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+*::selection{
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+/**::-webkit-scrollbar{
+    height: .5rem;
+    width: 1rem;
+}
+
+*::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}*/
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body{
+    background-color: var(--light-bg);
+    padding-left: 30rem;
+}
+
+body.active{
+    padding-left: 0;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #333;
+  color: #f5f5f5;
+}
+
+.dark-mode .fas.fa-sun {
+  display: none;
+}
+
+.dark-mode .fas.fa-moon {
+  display: block;
+}
+
+/* Light Mode */
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.light-mode .fas.fa-moon {
+  display: none;
+}
+
+.light-mode .fas.fa-sun {
+  display: block;
+}
+
+
+section{
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn, .option-btn, .delete-btn, .inline-btn, .inline-option-btn, inline-delete-btn{
+    border-radius: .5rem;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    color: #fff;
+    margin-top: 1rem;
+    text-transform: capitalize;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn, .option-btn, .delete-btn{
+    display: block;
+    width: 100%;
+}
+
+.inline-btn, .inline-option-btn, inline-delete-btn{
+    disply: inline-block;
+}
+
+.btn, .inline-btn{
+    background-color: var(--main-color);
+}
+
+.option-btn, .inline-option-btn{
+    background-color: var(--orange);
+}
+
+.delete-btn, .inline-delete-btn{
+    background-color: var(--red);
+}
+
+.btn:hover, .option-btn:hover, .delete-btn:hover, .inline-btn:hover, .inline-option-btn:hover, inline-delete-btn:hover{
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.flex-btn{
+    display: flex;
+    gap: 1rem;
+}
+
+.header{
+    background-color: var(--white);
+    border-bottom: var(--border);
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header .flex{
+    padding: 1.5rem 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .flex .logo{
+    font-size: 2.5rem;
+    color: var(--black);
+    font-weight: bolder;
+}
+
+.header .flex .search-form{
+    width: 50rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background-color: var(--light-bg);
+}
+
+.header .flex .search-form input{
+    width: 100%;
+    background: none;
+    font-size: 1.5rem;
+    color: var(--black);
+}
+
+.header .flex .search-form button{
+    font-size: 2rem;
+    color: var(--black);
+    cursor: pointer;
+    background: none;
+}
+
+.header .flex .search-form button:hover{
+    color: var(--main-color);
+}
+
+.header .flex .icons div{
+    font-size: 2rem;
+    color: var(--black);
+    border-radius: .5rem;
+    height: 4.5rem;
+    cursor: pointer;
+    width: 4.5rem;
+    line-height: 4.4rem;
+    background-color: var(--light-bg);
+    text-align: center;
+    margin-left: .5rem;
+}
+
+.header .flex .icons div:hover{
+    background-color: var(--black);
+    color: var(--white);
+}
+
+#search-btn{
+    display: none;
+}
+
+.header .flex .profile{
+    position: absolute;
+    top: 120%;
+    right: 2rem;
+    background-color: var(--white);
+    border-radius: .5rem;
+    padding: 2rem;
+    text-align: center;
+    width: 30rem;
+    transform: scale(0);
+    transform-origin: top right;
+    transition: .2s linear;
+}
+
+.header .flex .profile.active{
+    transform: scale(1);
+}
+
+.header .flex .profile img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: .5rem;
+}
+
+.header .flex .profile h3{
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.header .flex .profile span{
+    color: var(--light-color);
+    font-size: 1.4rem;
+}
+
+.side-bar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 30rem;
+    background-color: var(--white);
+    border-right: var(--border);
+}
+
+.side-bar .close-side-bar{
+    text-align: right;
+    padding: 2rem;
+    padding-botton: 0;
+    display: none;
+}
+
+.side-bar .close-side-bar i{
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.4rem;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    background-color: var(--red);
+    text-align: center;
+    border-radius: .5rem;
+}
+
+.side-bar .close-side-bar i:hover{
+    background-color: var(--black);
+}
+
+.side-bar .profile{
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.side-bar .profile img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: .5rem;
+}
+
+.side-bar .profile h3{
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.side-bar .profile span{
+    color: var(--light-color);
+    font-size: 1.6rem;
+}
+
+.side-bar .navbar a{
+    display: block;
+    padding: 2rem;
+    margin: .5rem 0;
+    font-size: 1.7rem;
+    text-decoration: none;
+}
+
+.side-bar .navbar a i{
+    color: var(--main-color);
+    margin-right: 1.5rem;
+    transition: .2s linear
+}
+
+.side-bar .navbar a span{
+    color: var(--light-color);
+}
+.side-bar .navbar a:hover{
+    background-color: var(--light-bg);
+}
+
+.side-bar .navbar a:hover i{
+    margin-right: 2.5rem;
+}
+
+.side-bar.active{
+    left: -31rem;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--white);
+    border-top: var(--border);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    color: var(--black);
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    z-index: 1000;
+}
+
+.footer span{
+    color: var(--main-color);
+}
+
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.container {
+    width: 90%;
+    background: #fff;
+    margin: 0 auto;
+    box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px;
+    padding: 16px;
+}
+
+.content-title{
+    font-size: 32px;
+    margin: 35px 0 20px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.profile-view {
+    font-size: 15px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+
+.form-control {
+    height: 30px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8;
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 16px;
+}
+
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+
+
+
+.main {
+    background: #f8f8f8;
+    padding: 50px 0;
+}
+
+.container {
+    width: 900px;
+    background: #fff;
+    margin: 0 auto;
+    box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px;
+}
+
+
+.signup-title{
+    font-size: 32px;
+    margin: 35px 0 0 85px;
+    font-weight: bold;
+}
+
+
+
+.signup {
+    margin-bottom: 20px;
+}
+
+.signup-content {
+    padding: 75px 0;
+}
+
+.signup-form, .signup-image, .signin-form, .signin-image {
+    width: 50%;
+    overflow: hidden;
+}
+
+.signup-image-link {
+    font-size: 14px;
+    color: #222;
+    display: block;
+    text-align: center;
+}
+
+.signup-image {
+    margin: 0 55px;
+}
+
+.form-title {
+    margin-bottom: 33px;
+}
+
+.signin-content {
+    padding-top: 67px;
+    padding-bottom: 87px;
+}
+
+.signin-image {
+    margin-left: 110px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.signin-form {
+    margin-right: 90px;
+    margin-left: 80px;
+}
+
+.form-input {
+    border: 1px solid black;
+    height: 30px;
+    font-size: 14px;
+}
+
+.form-input:focus {
+    box-shadow: none;
+    border-color: #BA68C8;
+}
+
+.form-signup {
+    margin-left: 80px;
+}
+
+.table-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+
+
+.table-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+table, td, th {
+    font-size: 14px;
+}
+
+.slideshow-container {
+    max-width: 70%;
+    position: relative;
+    margin: auto;
+}
+
+.slideshow-image {
+        width: 100%; /* Adjust the width as needed */
+        height: 50%; /* Adjust the height as needed */
+    }
+
+/* Styling for the slideshow navigation dots */
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 4px;
+    background-color: black;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.1s ease;
+}
+
+.dot.active {
+    background-color: #717171;
+}
+
+.about-us-text {
+    width: 50%;
+    font-size: 15px;
+    margin-top: 40px;
+}
+
+.details-text {
+    width: 100%;
+    margin: 30px 15%;
+    font-size: 15px;
+}
+
+.btn-primary btn-lg {
+    text-decoration: none;
+}
